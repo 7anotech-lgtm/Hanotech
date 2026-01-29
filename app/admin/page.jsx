@@ -34,7 +34,10 @@ export default function AdminDashboard() {
        try {
         const token =await getToken()
         const {data}=await axios.get('/api/admin/dashboard',{headers:{Authorization:`Bearer ${token}`}})
-       } catch (error) {
+       
+       setDashboardData(data.dashboardData)
+       }
+        catch (error) {
         toast.error(error?.response?.data?.error || error.message)
        }
        setLoading(false)
