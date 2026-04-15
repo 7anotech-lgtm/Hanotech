@@ -15,7 +15,7 @@ export async function POST(request) {
         const formData=await request.formData()
         const name=formData.get("name")
         const description=formData.get("description")
-        const mrp=formData.get("mrp")
+        const mrp=Number(formData.get("mrp"))
         const price=Number(formData.get("price"))
         const category=formData.get("category")
         const images=formData.getAll("images")
